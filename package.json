@@ -12,7 +12,9 @@
     "test": "NODE_ENV=test npm run test-mocha && NODE_ENV=test npm run features",
     "db-migrate": "knex migrate:latest --knexfile db/knexfile.js",
     "features": "NODE_ENV=test cucumber.js && NODE_ENV=test EXPRESS_BASE_PATH=/example-base-path cucumber.js",
-    "heroku-postbuild": "npm run compile"
+    "heroku-postbuild": "npm run compile",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "// NOTE": [
     "^Pinned dependencies are actually devDependencies, which are only",
@@ -40,7 +42,7 @@
     "gulp-util": "^3.0.7",
     "hogan.js": "~3.0",
     "i18n": "^0.8.2",
-    "jquery": "^2.2.4",
+    "jquery": "^3.5.0",
     "jquery-ui": "^1.10.5",
     "knex": "^0.11.5",
     "method-override": "~2.3",
@@ -51,7 +53,8 @@
     "pg": "^4.5.5",
     "serve-favicon": "~2.3",
     "vinyl-source-stream": "^1.1.0",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -67,5 +70,6 @@
   },
   "engines": {
     "node": "6.1.0"
-  }
+  },
+  "snyk": true
 }
